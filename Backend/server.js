@@ -4,6 +4,10 @@ const express=require('express');
 const compression = require('compression');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const cors=require('cors');
+const app=express();
+const order =require('./controllers/order')
+app.use(cors()); 
 if(cluster.isPrimary){
     const core=os.cpus().length;
     console.log("no of cpu",core);
@@ -15,7 +19,7 @@ if(cluster.isPrimary){
         cluster.fork();
     })
 }else{
-    const app=express();
+ 
 
     app.use(helmet());
     app.use(compression());
@@ -23,7 +27,15 @@ if(cluster.isPrimary){
     app.use(express.urlencoded({extended:true}));
     app.use(morgan('combined'));
     const cache=new Map();
-
+    app.get('/orders', async (req, res) => {
+        try {
+            await order(); 
+            res.status(200).send('Orders fetched and stored successfully.');
+        } catch (error) {
+            console.error('Error fetching orders:', error);
+            res.status(500).send('Error fetching orders.');
+        }
+    });
     app.get('/data',async(req,res)=>{
         const key='important';
         //if hit;
