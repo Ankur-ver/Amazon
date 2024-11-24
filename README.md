@@ -1,7 +1,7 @@
-# E-commerce Project
+# Amazes
 
 ## Project Description
-This project is a full-stack e-commerce application built with **React.js** for the frontend and **Node.js** for the backend. It integrates with **Amazon Multi-Channel Fulfillment (MCF)** to streamline order fulfillment from various online stores. The application allows users to browse products, manage a shopping cart, and complete purchases seamlessly while leveraging Amazon's fulfillment services.
+This application built with **React.js** for the frontend and **Node.js** for the backend. It integrates with **Amazon Multi-Channel Fulfillment (MCF)** to streamline order fulfillment from various online stores. The application allows users to browse products, manage a shopping cart, and complete purchases seamlessly while leveraging Amazon's fulfillment services.
 
 ## Features
 - User authentication (sign up, sign in)
@@ -19,7 +19,7 @@ This project is a full-stack e-commerce application built with **React.js** for 
 
 ### Steps to Install
 
-1. **Clone the repository:**
+1. **start:**
   ```bash
 cd backend
 npm install
