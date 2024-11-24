@@ -17,7 +17,7 @@ async function order() {
     try {
         const response = await axios.get(url, { headers });
         const orders = response.data.orders;
-
+        console.log("response",response);
         for (const order of orders) {
             const newOrder = new Order({
                 orderId: order.id,
@@ -31,6 +31,7 @@ async function order() {
             console.log(`Order ${order.id} saved to database.`);
         }
     } catch (error) {
+        console.log("error bye;")
         console.error('Error fetching orders:', error.response ? error.response.data : error.message);
     }
 }
